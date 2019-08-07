@@ -7,7 +7,10 @@
     <ul>
       <li><%= link_to (employee.first_name + employee.last_name), division_employee_path(@division, employee) %></li>
     </ul>
-
+  <% end %>
+<% else %>
+  <p>No employees are assigned to this project.</p>
+<% end %>
 
 <p><%= link_to "Edit", edit_division_path(@division) %></p>
 <p><%= link_to "Delete", division_path(@division),

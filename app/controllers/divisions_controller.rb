@@ -1,7 +1,7 @@
 class DivisionsController < ApplicationController
 
   def index
-    @division = Division.all
+    @divisions = Division.all
     render :index
   end
 
@@ -30,8 +30,9 @@ class DivisionsController < ApplicationController
   end
 
   def update
+    @division = Division.find(params[:id])
     if @division.update(division_params)
-      redirect_to division_path
+      redirect_to divisions_path
     else
       render :edit
     end
@@ -42,5 +43,10 @@ class DivisionsController < ApplicationController
     @division.destroy
     redirect_to divisions_path
   end
+
+  private
+    def division_params
+      params.require(:division).permit(:name)
+    end
 
 end
