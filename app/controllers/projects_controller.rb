@@ -5,16 +5,14 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @employee = Employee.find(params[:id])
-    @project = @employee.projects.new
+    @project = Project.new
     render :new
   end
 
   def create
-    @employee = Employee.find(params[:id])
-    @project = @employee.projects.new(project_params)
+    @project = Project.new(project_params)
     if @project.save
-      redirect_to employee_path(@employee)
+      redirect_to projects_path()
     else
       render :new
     end
