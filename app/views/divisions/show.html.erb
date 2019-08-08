@@ -1,7 +1,7 @@
 <h1><%= @division.name %></h1>
 
 <% if @division.employees.any? %>
-  <h4>Here are the employees associated with this project:</h4>
+  <h4>Here are the employees associated with this division:</h4>
 
   <% @division.employees.each do |employee| %>
     <ul>
@@ -9,7 +9,7 @@
     </ul>
   <% end %>
 <% else %>
-  <p>No employees are assigned to this project.</p>
+  <p>No employees are assigned to this division.</p>
 <% end %>
 
 <p><%= link_to "Add an employee", new_division_employee_path(@division) %></p>
